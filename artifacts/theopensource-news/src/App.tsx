@@ -2,15 +2,22 @@ import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   ArrowRight,
+  Activity,
   BookOpen,
+  Building2,
   Check,
   CircleHelp,
+  ChevronDown,
+  Compass,
   Globe2,
+  Languages,
+  Map,
   Menu,
   Search,
   Share2,
   ShieldCheck,
   Sparkles,
+  Users,
   X,
 } from 'lucide-react';
 import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
@@ -28,7 +35,7 @@ const stories = [
     summary: 'After a decade of patient work, communities along the Wye are seeing fish, wetlands and public access return to a once-polluted stretch.',
     topic: 'Living systems',
     location: 'Wales, United Kingdom',
-    time: 'Published 18 Apr 2025',
+    time: 'Prototype edition · date not live',
     author: 'The Open Meridian desk',
     art: 'blue',
   },
@@ -38,7 +45,7 @@ const stories = [
     summary: 'A neighbourhood library has extended its opening hours with a small solar installation built and maintained by local apprentices.',
     topic: 'Shared infrastructure',
     location: 'Nairobi, Kenya',
-    time: 'Editorial demo · 12 Apr 2025',
+    time: 'Editorial demo · date not live',
     author: 'Prototype desk',
     art: 'orange',
   },
@@ -48,10 +55,34 @@ const stories = [
     summary: 'An informal network is documenting heirloom varieties and returning them to fields, one season at a time.',
     topic: 'Food & land',
     location: 'Oaxaca, Mexico',
-    time: 'Editorial demo · 05 Apr 2025',
+    time: 'Editorial demo · date not live',
     author: 'Prototype desk',
     art: 'rose',
   },
+];
+
+const networkNodes = [
+  { id: 'dhaka', city: 'Dhaka', country: 'Bangladesh', region: 'South Asia', language: 'বাংলা · English', type: 'Community node', status: 'Prototype activity', reporters: 4, x: '67%', y: '44%' },
+  { id: 'london', city: 'London', country: 'United Kingdom', region: 'UK / Europe', language: 'English', type: 'Editorial node', status: 'Prototype activity', reporters: 6, x: '48%', y: '29%' },
+  { id: 'nairobi', city: 'Nairobi', country: 'Kenya', region: 'Africa', language: 'Kiswahili · English', type: 'Community node', status: 'Prototype activity', reporters: 3, x: '54%', y: '61%' },
+  { id: 'oaxaca', city: 'Oaxaca', country: 'Mexico', region: 'Latin America', language: 'Español', type: 'Independent node', status: 'Prototype activity', reporters: 2, x: '24%', y: '55%' },
+  { id: 'tokyo', city: 'Tokyo', country: 'Japan', region: 'East Asia', language: '日本語 · English', type: 'Independent node', status: 'Prototype activity', reporters: 5, x: '84%', y: '40%' },
+  { id: 'amman', city: 'Amman', country: 'Jordan', region: 'Middle East', language: 'العربية · English', type: 'Community node', status: 'Prototype activity', reporters: 2, x: '59%', y: '40%' },
+];
+
+const people = [
+  { id: 'samira-rahman', name: 'Samira Rahman', role: 'Correspondent', status: 'Reporter · prototype identity', location: 'Dhaka, Bangladesh', languages: 'বাংলা · English', record: 'First report pathway demonstrated', initials: 'SR' },
+  { id: 'thomas-evans', name: 'Thomas Evans', role: 'Editor', status: 'Editorial role · prototype identity', location: 'London, United Kingdom', languages: 'English · Cymraeg', record: 'Human review pathway demonstrated', initials: 'TE' },
+  { id: 'amina-wanjiku', name: 'Amina Wanjiku', role: 'Community contributor', status: 'Contributor · prototype identity', location: 'Nairobi, Kenya', languages: 'Kiswahili · English', record: 'Evidence contribution pathway demonstrated', initials: 'AW' },
+  { id: 'lucia-santiago', name: 'Lucía Santiago', role: 'Researcher', status: 'Research role · prototype identity', location: 'Oaxaca, Mexico', languages: 'Español', record: 'Source mapping pathway demonstrated', initials: 'LS' },
+  { id: 'kenji-mori', name: 'Kenji Mori', role: 'Photographer', status: 'Visual contributor · prototype identity', location: 'Tokyo, Japan', languages: '日本語 · English', record: 'Media provenance pathway demonstrated', initials: 'KM' },
+];
+
+const organizations = [
+  { id: 'meridian-desk', name: 'The Open Meridian desk', type: 'Central editorial node', region: 'Global / distributed', members: ['TE', 'SR'], intent: 'Human editorial review and provenance stewardship' },
+  { id: 'dhaka-community', name: 'Dhaka community node', type: 'Community newsroom node', region: 'South Asia', members: ['SR'], intent: 'Local observation connected to a global record' },
+  { id: 'wye-field', name: 'Wye field circle', type: 'Independent reporting node', region: 'UK / Europe', members: ['TE'], intent: 'Place-based environmental reporting and evidence' },
+  { id: 'east-africa', name: 'East Africa learning node', type: 'Partner-ready node', region: 'Africa', members: ['AW'], intent: 'Future interoperability with local publishing systems' },
 ];
 
 function PageMeta({ title, description }: { title: string; description: string }) {
@@ -86,6 +117,9 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const nav = [
     { href: '/', label: 'Record' },
+    { href: '/network', label: 'Network' },
+    { href: '/people', label: 'People' },
+    { href: '/organizations', label: 'Organizations' },
     { href: '/principles', label: 'Principles' },
     { href: '/contribute', label: 'Contribute' },
     { href: '/about', label: 'About' },
@@ -156,6 +190,9 @@ function Footer() {
         <div>
           <h3>Explore</h3>
           <Link href="/" className="footer-link" data-testid="link-footer-record">The global record</Link>
+          <Link href="/network" className="footer-link" data-testid="link-footer-network">Global network</Link>
+          <Link href="/people" className="footer-link" data-testid="link-footer-people">People in the network</Link>
+          <Link href="/organizations" className="footer-link" data-testid="link-footer-organizations">Organizations & nodes</Link>
           <Link href="/story/river-restoration" className="footer-link" data-testid="link-footer-story">Read a story</Link>
           <Link href="/contribute" className="footer-link" data-testid="link-footer-contribute">Make a first report</Link>
         </div>
@@ -167,7 +204,7 @@ function Footer() {
       </div>
       <div className="container-editorial footer-bottom">
         <span>Captain: Nadim · Owner: Human</span>
-        <span>Prototype content clearly marked · © 2025</span>
+        <span>Prototype content clearly marked · no live publication date</span>
       </div>
     </footer>
   );
@@ -228,6 +265,154 @@ function StoryRow({ story }: { story: typeof stories[number] }) {
   );
 }
 
+function EcosystemNav() {
+  const items = [
+    { href: '/', label: 'Global', icon: Globe2 },
+    { href: '/network', label: 'Regions', icon: Map },
+    { href: '/network', label: 'Developing', icon: Activity },
+    { href: '/story/river-restoration', label: 'Stories', icon: BookOpen },
+    { href: '/people', label: 'People', icon: Users },
+    { href: '/organizations', label: 'Newsrooms', icon: Building2 },
+    { href: '/network', label: 'Languages', icon: Languages },
+    { href: '/network', label: 'Network activity', icon: Compass },
+  ];
+  return (
+    <nav className="ecosystem-nav" aria-label="Global discovery">
+      <div className="eyebrow">Explore the ecosystem</div>
+      <div className="ecosystem-nav-links">
+        {items.map(({ href, label, icon: Icon }) => (
+          <Link key={`${href}-${label}`} href={href} className="ecosystem-link" data-testid={`link-ecosystem-${label.toLowerCase().replaceAll(' ', '-')}`}>
+            <Icon size={15} /> <span>{label}</span><ArrowRight size={12} />
+          </Link>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+function NetworkScale() {
+  return (
+    <section className="network-scale" aria-labelledby="network-scale-title">
+      <div className="network-scale-copy">
+        <div className="eyebrow">A network, not a feed</div>
+        <h2 id="network-scale-title">Many places. One accountable record.</h2>
+        <p>The eventual network can hold millions of people, organizations, languages and evolving stories without changing its basic promise: every item keeps its origin and editorial path attached.</p>
+        <Link href="/network" className="button-editorial button-ink" data-testid="link-home-network">Enter the global network <ArrowRight size={14} /></Link>
+      </div>
+      <div className="scale-constellation" aria-label="Prototype network scale diagram">
+        <div className="constellation-orbit orbit-one" />
+        <div className="constellation-orbit orbit-two" />
+        <div className="constellation-center"><MeridianMark /><span>Humanity</span></div>
+        <span className="constellation-label label-one">People</span>
+        <span className="constellation-label label-two">Places</span>
+        <span className="constellation-label label-three">Languages</span>
+        <span className="constellation-label label-four">Stories</span>
+      </div>
+    </section>
+  );
+}
+
+function NetworkPage() {
+  const [query, setQuery] = useState('');
+  const [region, setRegion] = useState('All regions');
+  const regions = ['All regions', ...Array.from(new Set(networkNodes.map((node) => node.region)))];
+  const filteredNodes = useMemo(() => networkNodes.filter((node) => {
+    const text = `${node.city} ${node.country} ${node.region} ${node.language} ${node.type}`.toLowerCase();
+    return text.includes(query.toLowerCase()) && (region === 'All regions' || node.region === region);
+  }), [query, region]);
+  return (
+    <>
+      <PageMeta title="Global network" description="Explore the prototype world, regions, cities, languages and newsroom nodes of TheOpenSource.NEWS." />
+      <div className="container-editorial">
+        <header className="page-hero">
+          <div className="eyebrow">Global network / discovery layer</div>
+          <h1>A world of reporting, <em>connected.</em></h1>
+          <p>The network is designed for people, places and independent reporting streams to meet without losing their identity. Everything visible here is static prototype activity — not a live feed.</p>
+        </header>
+        <EcosystemNav />
+        <section className="network-workspace" aria-labelledby="map-title">
+          <div className="network-heading">
+            <div><div className="eyebrow">World → region → country → city</div><h2 id="map-title">The Open Meridian network map</h2></div>
+            <span className="prototype-badge">Prototype nodes · not live</span>
+          </div>
+          <div className="network-controls">
+            <label className="network-search"><Search size={16} /><span className="sr-only">Search the network</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search city, country, language…" data-testid="input-search-network" /></label>
+            <label className="network-select-label"><span className="sr-only">Filter by region</span><select value={region} onChange={(event) => setRegion(event.target.value)} data-testid="select-network-region">{regions.map((item) => <option key={item}>{item}</option>)}</select><ChevronDown size={14} /></label>
+          </div>
+          <div className="map-and-list">
+            <div className="world-map" role="img" aria-label="Abstract world map with prototype newsroom nodes">
+              <div className="map-grid" />
+              <div className="landmass landmass-one" /><div className="landmass landmass-two" /><div className="landmass landmass-three" />
+              {filteredNodes.map((node) => <button type="button" key={node.id} className="map-node" style={{ left: node.x, top: node.y }} title={`${node.city}, ${node.country}`} onClick={() => setQuery(node.city)} data-testid={`button-map-node-${node.id}`}><span className="map-node-pulse" /><span className="map-node-label">{node.city}</span></button>)}
+              {filteredNodes.length === 0 && <div className="map-empty">No prototype nodes match this search.</div>}
+              <div className="map-legend"><span><i className="legend-dot" />Prototype activity</span><span><i className="legend-line" />Potential connection</span></div>
+            </div>
+            <div className="node-list">
+              <div className="eyebrow">Node directory · {filteredNodes.length}</div>
+              {filteredNodes.map((node) => <article className="node-item" key={node.id} data-testid={`card-network-node-${node.id}`}><div className="node-item-top"><span className="node-country">{node.country}</span><span className="prototype-badge">{node.status}</span></div><h3>{node.city}</h3><p>{node.region} · {node.type}</p><div className="node-item-meta"><span>{node.language}</span><span>{node.reporters} prototype identities</span></div></article>)}
+            </div>
+          </div>
+        </section>
+        <section className="activity-section" aria-labelledby="activity-title">
+          <div className="section-heading"><h2 id="activity-title">Network activity</h2><span>Static prototype stream</span></div>
+          <div className="activity-grid">
+            <div className="activity-event"><span className="activity-time">Recently shaped</span><strong>Dhaka · a community node mapped a first-report pathway</strong><p>Prototype activity · provenance not yet live</p></div>
+            <div className="activity-event"><span className="activity-time">In development</span><strong>Nairobi · Kiswahili language relationship added</strong><p>Prototype activity · translation workflow not yet live</p></div>
+            <div className="activity-event"><span className="activity-time">Architecture</span><strong>London ↔ Oaxaca · cross-border editorial connection</strong><p>Prototype activity · no partner feed connected</p></div>
+          </div>
+        </section>
+      </div>
+    </>
+  );
+}
+
+function PeoplePage() {
+  const [query, setQuery] = useState('');
+  const [role, setRole] = useState('All roles');
+  const roles = ['All roles', ...Array.from(new Set(people.map((person) => person.role)))];
+  const filteredPeople = useMemo(() => people.filter((person) => {
+    const text = `${person.name} ${person.role} ${person.location} ${person.languages}`.toLowerCase();
+    return text.includes(query.toLowerCase()) && (role === 'All roles' || person.role === role);
+  }), [query, role]);
+  return (
+    <>
+      <PageMeta title="People in the network" description="Discover the contributor and reporter identity architecture of TheOpenSource.NEWS." />
+      <div className="container-editorial">
+        <header className="page-hero"><div className="eyebrow">People / contributor identity</div><h1>Every report begins with a <em>person.</em></h1><p>Reporter, correspondent, contributor, editor, photographer or researcher: the network keeps roles distinct and publication history visible. These are prototype identities, not verified credentials.</p></header>
+        <EcosystemNav />
+        <div className="directory-toolbar"><label className="search-box"><Search size={16} /><span className="sr-only">Search people</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search names, places, languages…" data-testid="input-search-people" /></label><div className="filter-pills">{roles.map((item) => <button type="button" key={item} className={`topic-pill ${role === item ? 'active' : ''}`} onClick={() => setRole(item)} data-testid={`button-role-${item.toLowerCase().replaceAll(' ', '-')}`}>{item}</button>)}</div></div>
+        <div className="directory-summary"><span>{filteredPeople.length} prototype identities shown</span><span>Identity is earned through transparent contribution, never popularity.</span></div>
+        <section className="people-directory" aria-label="People directory">
+          {filteredPeople.map((person) => <article className="person-card" key={person.id} data-testid={`card-person-${person.id}`}><div className="person-card-top"><span className="person-avatar">{person.initials}</span><span className="prototype-badge">{person.status}</span></div><h2>{person.name}</h2><div className="person-role">{person.role}</div><p>{person.location}</p><p className="person-languages"><Languages size={13} /> {person.languages}</p><div className="person-record"><span className="eyebrow">Provenance record</span><strong>{person.record}</strong></div></article>)}
+        </section>
+        {filteredPeople.length === 0 && <div className="directory-empty">No prototype identities match this search. Try another place, role or language.</div>}
+        <div className="directory-note"><ShieldCheck size={17} /><p><strong>No artificial authority.</strong> A profile can show what a person has contributed and how a record changed. It does not manufacture a badge, trust score or verification claim.</p></div>
+      </div>
+    </>
+  );
+}
+
+function OrganizationsPage() {
+  const [query, setQuery] = useState('');
+  const filteredOrganizations = useMemo(() => organizations.filter((organization) => `${organization.name} ${organization.type} ${organization.region} ${organization.intent}`.toLowerCase().includes(query.toLowerCase())), [query]);
+  return (
+    <>
+      <PageMeta title="Organizations and nodes" description="Explore the prototype newsroom and organization node architecture of TheOpenSource.NEWS." />
+      <div className="container-editorial">
+        <header className="page-hero"><div className="eyebrow">Organizations / node directory</div><h1>Newsrooms are <em>connections.</em></h1><p>Organizations can join the ecosystem as accountable nodes, attach multiple reporters and preserve original authorship while making collaboration possible across borders.</p></header>
+        <EcosystemNav />
+        <section className="organization-intro"><div><div className="eyebrow">Interoperability by design</div><h2>Built to connect, not absorb.</h2></div><p>These organization records demonstrate a future-ready shape for partner publications, independent newsrooms and community reporting systems. No external organization or live feed is represented here.</p></section>
+        <label className="search-box organization-search"><Search size={16} /><span className="sr-only">Search organizations</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search nodes, regions or purpose…" data-testid="input-search-organizations" /></label>
+        <section className="organization-directory" aria-label="Organization directory">
+          {filteredOrganizations.map((organization) => <article className="organization-card" key={organization.id} data-testid={`card-organization-${organization.id}`}><div className="organization-icon"><Building2 size={21} /></div><div className="organization-card-body"><div className="organization-card-top"><span className="eyebrow">{organization.type}</span><span className="prototype-badge">Prototype node</span></div><h2>{organization.name}</h2><p>{organization.region}</p><div className="organization-intent"><span className="eyebrow">Interoperability intent</span><strong>{organization.intent}</strong></div><div className="member-line"><span className="eyebrow">Attached identities</span><span className="member-stack">{organization.members.map((member) => <span key={member} className="member-avatar">{member}</span>)}</span><span>{organization.members.length} prototype {organization.members.length === 1 ? 'identity' : 'identities'}</span></div></div></article>)}
+        </section>
+        {filteredOrganizations.length === 0 && <div className="directory-empty">No prototype nodes match this search.</div>}
+        <div className="api-intent"><div className="eyebrow">Future API surface</div><h2>One network, many ways in.</h2><p>The product is intended to become API-first and integration-ready for mobile apps, external newsrooms, partner publications and controlled syndication — while preserving authorship, provenance and language relationships.</p><span className="prototype-badge">Architecture note · not connected</span></div>
+      </div>
+    </>
+  );
+}
+
 function Home() {
   const [query, setQuery] = useState('');
   const [topic, setTopic] = useState('All');
@@ -244,7 +429,7 @@ function Home() {
       <div className="container-editorial">
         <section className="hero-record">
           <div className="reveal">
-            <div className="eyebrow">The global public record · 01 / 05 / 2025</div>
+            <div className="eyebrow">The global public record · prototype edition</div>
             <h1>A clearer view of a world still <em>in motion.</em></h1>
             <p className="hero-deck">TheOpenSource.NEWS is a calm, open publication for evidence-led progress — stories that remain connected to the people, sources and changes behind them.</p>
           </div>
@@ -256,8 +441,10 @@ function Home() {
         </section>
         <div className="record-strip">
           <div className="ticker"><span className="live-dot" /> The record is open</div>
-          <div className="record-strip-copy"><strong>3</strong> prototype stories · provenance visible by design</div>
+          <div className="record-strip-copy"><strong>Prototype network</strong> · provenance visible by design</div>
         </div>
+        <EcosystemNav />
+        <NetworkScale />
         <div className="search-row">
           <div className="search-box">
             <Search size={17} aria-hidden="true" />
@@ -270,7 +457,7 @@ function Home() {
           </div>
         </div>
         <section aria-labelledby="featured-title">
-          <div className="section-heading"><h2 id="featured-title">A story to begin with</h2><span>01 / Field note</span></div>
+          <div className="section-heading"><h2 id="featured-title">A story to begin with</h2><span>Prototype field note</span></div>
           <article className="lead-story">
             <StoryArt lead />
             <div className="lead-copy">
@@ -282,7 +469,7 @@ function Home() {
                 <p className="story-summary">After a decade of patient work, communities along the Wye are seeing fish, wetlands and public access return to a once-polluted stretch.</p>
               </div>
               <div>
-                <div className="story-meta"><span className="status">Editorial demo</span><span>18 Apr 2025</span><span>·</span><span>The Open Meridian desk</span></div>
+                <div className="story-meta"><span className="status">Editorial demo</span><span>Prototype edition</span><span>·</span><span>The Open Meridian desk</span></div>
                 <div style={{ marginTop: 17 }}><SaveShare /></div>
               </div>
             </div>
@@ -324,7 +511,7 @@ function ArticlePage() {
             <div className="byline-row">
               <span className="avatar-initials">OM</span>
               <span><strong>The Open Meridian desk</strong><br />Editorial team · Reporter record shown as prototype</span>
-              <span>Published 18 Apr 2025<br />Updated 21 Apr 2025</span>
+              <span>Prototype publication record<br />Update history not live</span>
               <span>Original language: English</span>
               <div className="article-tools"><SaveShare compact /></div>
             </div>
@@ -343,7 +530,7 @@ function ArticlePage() {
             </div>
             <aside className="article-aside" aria-label="Story provenance">
               <div className="aside-block"><h3>Status</h3><p><Check size={13} /> Published as editorial demo<br /><span>Not a verified live report</span></p></div>
-              <div className="aside-block"><h3>Provenance</h3><ul><li><strong>Origin</strong><br />Prototype field note · 18 Apr</li><li><strong>Evidence</strong><br />To be attached in live workflow</li><li><strong>Editorial pass</strong><br />Human review required</li><li><strong>Translation</strong><br />English original · no translation</li></ul></div>
+              <div className="aside-block"><h3>Provenance</h3><ul><li><strong>Origin</strong><br />Prototype field note · date not live</li><li><strong>Evidence</strong><br />To be attached in live workflow</li><li><strong>Editorial pass</strong><br />Human review required</li><li><strong>Translation</strong><br />English original · no translation</li></ul></div>
               <div className="aside-block"><h3>Sources</h3><p><CircleHelp size={14} style={{ verticalAlign: 'middle', marginRight: 5 }} /> References are intentionally not represented as verified in this first release.</p></div>
               <Link href="/principles" className="button-editorial" data-testid="link-article-principles">How this works <ArrowRight size={14} /></Link>
             </aside>
@@ -437,6 +624,9 @@ function Router() {
       <Shell>
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/network" component={NetworkPage} />
+          <Route path="/people" component={PeoplePage} />
+          <Route path="/organizations" component={OrganizationsPage} />
           <Route path="/story/river-restoration" component={ArticlePage} />
           <Route path="/contribute" component={ContributePage} />
           <Route path="/principles" component={PrinciplesPage} />

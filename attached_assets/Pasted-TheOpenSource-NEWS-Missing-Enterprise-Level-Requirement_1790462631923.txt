@@ -1,0 +1,54 @@
+TheOpenSource.NEWS: Missing Enterprise-Level Requirements
+
+* This is NOT a blog and NOT merely a conventional online newspaper website. It must be architected as a global news ecosystem and networking enterprise.
+* TheOpenSource.NEWS is the central global news network, with the capability to connect publications, journalists, independent reporters, contributors, newsrooms, communities, organizations and geographic nodes around the world.
+* The website must be designed from day one as a multi-node, multi-region, multi-language publishing ecosystem, not as a single-author publication.
+* Global newsroom architecture: the system must be capable of representing geographic newsrooms/nodes such as Bangladesh, UK/Europe, North America, Middle East, Asia, Africa, Latin America and future regions without redesigning the platform.
+* Every registered human contributor can become part of the reporting network. Once a person successfully publishes a report under their account, their profile can establish that they are an Open Source reporter/contributor, with a verifiable publication history.
+* A newly submitted report should enter a professional editorial pipeline, initially as a Pipeline Draft, rather than appearing immediately as fully verified front-page journalism.
+* The editorial pipeline should support multiple stages such as:
+    Submitted → Pipeline Draft → Verification/Review → Edited → Approved → Published → Updated/Corrected → Archived.
+* Multiple editorial agents/workflows can independently inspect a submitted report for facts, source provenance, duplication, language, structure, legal/editorial risks, misinformation indicators and publication quality before human editorial approval.
+* Human editorial accountability remains central. Automated/technological processing assists the newsroom but does not replace accountable editorial responsibility.
+* Build a source/provenance system so every report can retain information about its origin, contributor, submission time, sources, editorial actions, revisions and correction history.
+* Build a Reporter Profile / Contributor Identity system, including:
+    * name
+    * profile
+    * location/region
+    * publication history
+    * first published report
+    * subsequent reports
+    * contributor/reporter status
+    * verification status where applicable
+* The system must support multiple contributor classes without forcing everyone into the same role:
+    Reporter, Correspondent, Contributor, Editor, Photographer, Video Contributor, Researcher, Newsroom/Organization.
+* Language must be global from the architecture level. The platform should be capable of publishing in every major human language, rather than treating English as the only core language.
+* Each story should support original-language publication plus multilingual editions/translations, while preserving the relationship between the original report and its language versions.
+* The homepage must communicate global network scale, not resemble a personal blog or small magazine.
+* The visual system should make the user feel that they are entering a global information network, with multiple regions, languages, people and reporting streams operating within one ecosystem.
+* Provide a Global News Map / geographic discovery layer so users can discover reporting by country, region and city.
+* Provide Global / Region / Country / City / Topic / Language navigation architecture.
+* Support live feeds and continuously updating news streams, not only manually curated article cards.
+* The platform should be capable of aggregating and displaying multiple independent reporting streams while maintaining clear provenance for every item.
+* Create the foundation for network-to-network interoperability, allowing future affiliated publications, partner newsrooms and independent reporting communities to connect to TheOpenSource.NEWS without rebuilding the core platform.
+* Treat affiliated publications and organizations as nodes within an ecosystem, rather than simply pages or categories.
+* The architecture must therefore be API-first and integration-ready, allowing future mobile apps, external newsrooms, partner publications, feeds and other publishing systems to connect.
+* Build the foundation for syndication and controlled content distribution, while preserving original authorship and provenance.
+* Include organization/newsroom profiles in addition to individual reporter profiles.
+* A newsroom or organization should be capable of having multiple reporters/contributors attached to it.
+* Build the foundation for cross-border collaboration, allowing a contributor in one country and an editorial team in another country to participate in the same reporting workflow.
+* The platform should support breaking news, developing stories and continuously updated stories, with visible chronology and update history.
+* A story should be capable of evolving rather than being treated as a static blog post.
+* Build search as a global discovery engine, capable of searching people, reports, topics, countries, organizations, languages and dates.
+* Build the architecture so that the number of reporters, organizations, stories, countries and languages can grow from hundreds to millions without changing the fundamental product concept.
+* Do not design the UI around today’s content volume. Design the information architecture around the eventual global network.
+* The homepage should visually prioritize:
+    World → Regions → Breaking/Developing → Major Stories → Human Stories → Local-to-Global Reporting → Network Activity, rather than a simple blog-style chronological post feed.
+* The design must feel like a serious global media institution and technological publishing network, while remaining human, elegant, open and accessible.
+* The core conceptual hierarchy is:
+    Humanity → Global Network → News → People → Stories → Verification → Distribution.
+* The brand philosophy “Owner: Human” must be reflected conceptually throughout the ecosystem. Nadim is the Captain/steering authority, while “Human” represents the philosophical ownership of the publication.
+* The platform should make it possible for an ordinary person anywhere in the world to enter the ecosystem through one legitimate act of reporting, and progressively build a public, verifiable reporting identity through their work.
+* The ultimate product vision is not simply “a website that publishes news.”
+    It is:
+    A global, multilingual, human-centred news ecosystem that connects people, reporters, newsrooms, communities and information from around the world into one open publishing and verification network.
