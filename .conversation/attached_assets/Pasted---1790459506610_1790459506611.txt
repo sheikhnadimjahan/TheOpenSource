@@ -1,0 +1,1018 @@
+হ্যাঁ—দৃষ্টিকোণটি এবার সম্পূর্ণ পরিষ্কার। আপনি যে ধারণাটি বলছেন, সেটি শুধু একটি নিউজ ওয়েবসাইটের ডিজাইন বা কনটেন্ট মডেল নয়; এটি একটি মানবজাতির জন্য উন্মুক্ত বৈশ্বিক সংবাদ ও জ্ঞান-ব্যবস্থা হিসেবে TheOpenSource.NEWS-কে নির্মাণ করার দর্শন।
+
+নিচের প্রম্পটটি সেই দর্শন, মালিকানা, রিপোর্টার-অধিকার, AI-assisted editorial pipeline, ভাষা, সত্যতা, লোগো ও সম্পূর্ণ user experience—সবকিছু একসঙ্গে ধরে তৈরি করা হয়েছে। এটি Replit/Gemini/Copilot—যে কোনো শক্তিশালী agent-কে দেওয়া যাবে।
+
+⸻
+
+MASTER PROMPT — TheOpenSource.NEWS
+
+A Gift to Humanity — Built by One Human, Owned by Humanity
+
+ROLE
+
+Act simultaneously as a:
+
+* World-class global news-platform architect
+* Editorial systems designer
+* Investigative journalism standards expert
+* Human-centered product designer
+* Information-architecture specialist
+* Typography and brand-identity designer
+* Open-source platform architect
+* Trust, verification and provenance-system designer
+* Multilingual publishing-system architect
+* AI-assisted editorial workflow architect
+* UX/UI designer
+* Senior full-stack product engineer
+
+You are not being asked to build another conventional newspaper website.
+
+You are being asked to design and build a new category of global human news platform.
+
+The platform is:
+
+TheOpenSource.NEWS
+
+The spelling must remain exactly:
+
+TheOpenSource.NEWS
+
+Do not rename it.
+
+⸻
+
+1. THE FOUNDATIONAL IDEA
+
+The entire product must be built around one fundamental principle:
+
+The platform represents Humanity.
+
+Not a country.
+Not a political party.
+Not a government.
+Not a corporation.
+Not a religious institution.
+Not an individual newspaper owner.
+Not a particular ideology.
+
+Humanity.
+
+Every major decision concerning:
+
+* visual identity
+* logo
+* typography
+* interface
+* editorial architecture
+* publishing workflow
+* language
+* contributor system
+* verification
+* corrections
+* transparency
+* attribution
+* content provenance
+* moderation
+* accessibility
+* global participation
+* public documentation
+
+must be evaluated against this question:
+
+Does this represent human beings collectively, fairly, openly and truthfully?
+
+⸻
+
+2. THE CREATOR AND THE OWNER
+
+There is an important distinction.
+
+One human is creating, steering and giving this platform to the world.
+
+The creator’s role is:
+
+Captain
+
+The conceptual owner is:
+
+Human
+
+Meaning:
+
+Humanity — the human race collectively.
+
+The philosophy can be expressed publicly as:
+
+Captain: Nadim
+Owner: Human
+
+This does NOT mean that “Human” is a legal corporate entity.
+
+It is the platform’s public philosophical ownership principle.
+
+The creator is steering the ship.
+
+But the ship is being given to humanity.
+
+The underlying philosophy is:
+
+“I steer the ship, but the ship is not mine. Humanity owns the destination.”
+
+This philosophy must be reflected throughout the platform—not merely placed on an About page.
+
+⸻
+
+3. THE ORIGINALITY PRINCIPLE
+
+Do not describe TheOpenSource.NEWS as:
+
+* another online newspaper
+* another citizen-journalism website
+* another Wikipedia
+* another social network
+* another blogging platform
+* another AI news site
+* another conventional newsroom
+
+It may share useful characteristics with existing systems, but it must be architecturally and philosophically distinct.
+
+Research existing global models where necessary, but do not copy their branding, layout, terminology or identity.
+
+The product should feel like something that could become its own category.
+
+The conceptual proposition is:
+
+A global open publication where humanity can participate in creating, examining, verifying, correcting and continuously improving the public record.
+
+⸻
+
+4. THE MEANING OF “OPEN SOURCE”
+
+“Open Source” is not merely a technical reference.
+
+It has an editorial meaning.
+
+The platform should make knowledge more open through:
+
+* participation
+* evidence
+* attribution
+* verification
+* correction
+* transparency
+* provenance
+* continuous improvement
+
+A person does not have to belong to a traditional newsroom to contribute meaningful reporting.
+
+But openness must never mean that truth standards are abandoned.
+
+Open participation + rigorous verification must coexist.
+
+⸻
+
+5. THE REPORTER CONCEPT
+
+This is a core innovation.
+
+A person should not need to be hired by a conventional newsroom before they can legitimately contribute reporting.
+
+A registered human user may submit a news report.
+
+Once that person successfully publishes their first report into the platform’s publishing system, the platform should establish a persistent contributor record.
+
+Conceptually:
+
+“I reported something on TheOpenSource.NEWS.”
+
+Therefore the system can establish:
+
+Reporter Status
+
+A user can have a public profile showing:
+
+* Name
+* Unique contributor identity
+* Date joined
+* First report date
+* Number of reports submitted
+* Number published
+* Number under review
+* Number corrected
+* Verification history
+* Evidence contributions
+* Editorial contribution history
+
+The system should be able to truthfully establish:
+
+Reporter on TheOpenSource.NEWS since [date].
+
+If the person submitted their first report one minute ago, the system must preserve that timestamp.
+
+That does not mean the report is automatically treated as verified journalism.
+
+It means the person has become a platform contributor/reporter.
+
+⸻
+
+6. REPORTER STATUS MUST HAVE LEVELS
+
+Do not create a simplistic binary:
+
+“Reporter / Not Reporter.”
+
+Create an evidence-based progression.
+
+For example:
+
+Contributor
+
+Has registered and participated.
+
+Reporter
+
+Has submitted a report.
+
+Active Reporter
+
+Has multiple active reporting contributions.
+
+Verified Reporting Record
+
+Has reporting that has passed the platform’s verification process.
+
+Trusted/Established Contributor
+
+A status based on transparent historical contribution—not popularity.
+
+Do not allow money, follower count or political influence to determine credibility.
+
+The exact terminology may be refined during implementation, but the principle must remain.
+
+⸻
+
+7. THE FIRST REPORT
+
+When a new user publishes their first report:
+
+The platform should automatically record:
+
+* exact timestamp
+* author’s identity
+* original title
+* original body
+* source/evidence metadata
+* editorial state
+* subsequent revisions
+* verification events
+* correction history
+
+The first version must never simply disappear.
+
+The system should maintain provenance.
+
+Therefore, years later, someone should be able to determine:
+
+Who originally reported this?
+When did they report it?
+What evidence existed at that time?
+What changed afterward?
+Who verified it?
+Was it corrected?
+
+This is essential.
+
+⸻
+
+8. THE PIPELINE
+
+A submitted report should initially enter:
+
+Pipeline Draft
+
+It should NOT automatically become a fully published front-page news story.
+
+The pipeline should support stages such as:
+
+Submitted → Pipeline Draft → AI Review → Evidence Review → Editorial Review → Verified/Approved → Published → Updated/Corrected → Archived
+
+The exact labels may be optimized during implementation.
+
+⸻
+
+9. MULTI-AGENT EDITORIAL SYSTEM
+
+Build an internal editorial pipeline in which several specialized AI agents independently examine submissions.
+
+Do NOT allow one AI to be the sole authority.
+
+Use specialized roles such as:
+
+Agent 1 — Fact & Claim Extraction
+
+Identifies factual claims.
+
+Agent 2 — Source & Evidence Analyst
+
+Checks whether claims have supporting evidence.
+
+Agent 3 — Contradiction Detector
+
+Looks for internal contradictions and conflicts with available evidence.
+
+Agent 4 — Language Editor
+
+Improves grammar, clarity and readability without changing factual meaning.
+
+Agent 5 — Bias/Framing Auditor
+
+Identifies loaded language, unsupported assumptions and framing problems.
+
+Agent 6 — Duplicate/Similarity Detector
+
+Checks whether the submission appears copied or substantially duplicated.
+
+Agent 7 — Safety & Legal-Risk Screener
+
+Flags potentially dangerous, defamatory, privacy-invasive or otherwise problematic material for human review.
+
+Agent 8 — Translation Integrity Agent
+
+Checks translations against the original meaning.
+
+Agent 9 — Final Editorial Synthesizer
+
+Combines the findings.
+
+Important:
+
+AI recommendations must not silently become facts.
+
+The system must retain an audit trail.
+
+Where human editorial judgment is required, escalate to a human.
+
+⸻
+
+10. TRUTHFULNESS
+
+The platform’s central editorial principle must be:
+
+Evidence before assertion.
+
+Do not optimize the platform merely for:
+
+* clicks
+* virality
+* outrage
+* political engagement
+* sensational headlines
+* advertising
+* page views
+
+The platform should distinguish clearly between:
+
+Fact
+
+Supported by evidence.
+
+Report
+
+A contributor’s account requiring verification.
+
+Analysis
+
+Reasoned interpretation.
+
+Opinion
+
+Clearly identified personal/editorial opinion.
+
+Developing information
+
+Information that remains incomplete.
+
+Correction
+
+A documented correction to an earlier publication.
+
+Never make uncertainty disappear merely to make an article look confident.
+
+⸻
+
+11. CORRECTION SYSTEM
+
+The platform must treat corrections as a strength, not a failure.
+
+Every published article should have a transparent history.
+
+If something changes:
+
+* preserve the original version
+* record the change
+* timestamp the change
+* explain the reason
+* identify whether the change was factual, linguistic, contextual or editorial
+
+The system should never quietly rewrite history.
+
+⸻
+
+12. OWNERSHIP AND TRANSPARENCY PAGE
+
+Create a highly visible public page explaining:
+
+Who created TheOpenSource.NEWS?
+
+Who steers it?
+
+What does “Human” ownership mean?
+
+How does the reporting system work?
+
+How does verification work?
+
+How are corrections handled?
+
+What role do AI systems play?
+
+What role do humans play?
+
+What rights does a contributor have?
+
+What happens to a report after submission?
+
+The philosophical ownership statement should be prominent.
+
+⸻
+
+13. GLOBAL LANGUAGE ARCHITECTURE
+
+The platform must be genuinely multilingual.
+
+Do not design it as:
+
+English first + translated copies.
+
+Design it as a language-independent global publication architecture.
+
+The publication should be capable of supporting the languages of the world.
+
+This means:
+
+* Unicode-first architecture
+* RTL support
+* LTR support
+* language-specific typography
+* language-specific date/number formatting
+* multilingual metadata
+* translated headlines
+* translated summaries
+* original-language preservation
+* cross-language article relationships
+
+A reader should always be able to determine:
+
+Original language
+
+Translation language
+
+Translator/system
+
+Translation timestamp
+
+Translations must never erase the original.
+
+⸻
+
+14. THE WORD “HUMAN”
+
+Use the concept of Humanity throughout the experience carefully.
+
+It should communicate:
+
+* universality
+* dignity
+* openness
+* equality
+* curiosity
+* responsibility
+* truth
+* knowledge
+* shared ownership
+
+Do not turn it into a marketing slogan.
+
+It should feel like a foundational principle.
+
+⸻
+
+15. LOGO — BUILT INTO THE PRODUCT FROM DAY ONE
+
+The logo is not an afterthought.
+
+Build the visual identity into the entire product architecture.
+
+Brand:
+
+TheOpenSource.NEWS
+
+The visual hierarchy must NOT treat all letters as equal.
+
+Required conceptual hierarchy:
+
+The
+
+Approximately 55–60% visual scale/weight.
+
+Open
+
+Approximately 90–100%.
+
+This is the conceptual/editorial signature.
+
+Source
+
+Approximately 58–65%.
+
+Supporting the central concept.
+
+.NEWS
+
+Approximately 100–110%.
+
+This must have the strongest publication authority.
+
+The exact numerical proportions may be optically adjusted by a professional designer, but the hierarchy must remain.
+
+The visible spelling must remain:
+
+TheOpenSource.NEWS
+
+Do not insert actual spaces into the brand name.
+
+⸻
+
+16. TYPOGRAPHY
+
+Use a premium editorial serif for:
+
+Open
+
+It should communicate:
+
+* intelligence
+* literature
+* journalism
+* permanence
+* authority
+* human culture
+
+Use a complementary modern sans-serif for:
+
+.NEWS
+
+It should communicate:
+
+* precision
+* modernity
+* clarity
+* digital authority
+
+“The” and “Source” should support the hierarchy rather than compete with it.
+
+Avoid generic startup typography.
+
+Avoid excessive futuristic typography.
+
+Avoid childish typography.
+
+Avoid tabloid styling.
+
+⸻
+
+17. LOGO SYMBOL — THE OPEN MERIDIAN
+
+Use the strategic concept:
+
+The Open Meridian
+
+The symbol should be an abstract representation of a sphere/world constructed through intersecting arcs.
+
+But the arcs must not completely close.
+
+The open negative space creates an aperture.
+
+Conceptual meanings:
+
+* world
+* openness
+* source
+* transparency
+* perspective
+* knowledge
+* humanity
+* continuous discovery
+
+The symbol should work:
+
+* beside the wordmark
+* above the wordmark
+* as a favicon
+* as an app icon
+* as a social avatar
+* as a watermark
+* in monochrome
+* in black
+* in white
+* at extremely small sizes
+
+Do not create a literal stock globe.
+
+Do not create a generic technology-company logo.
+
+⸻
+
+18. COLOR SYSTEM
+
+Primary:
+
+Oxford Ink — #0A1128
+
+Secondary:
+
+Cobalt Archive — #1C3B8A
+
+Background:
+
+Alabaster — #F9F9F7
+
+Body:
+
+Graphite — #222222
+
+Accent:
+
+Signal Red — #D9231D
+
+Signal Red must be highly restrained.
+
+Use it primarily for:
+
+* breaking news
+* live indicators
+* important alerts
+* selected brand punctuation/accent
+
+Do not turn the entire website red.
+
+⸻
+
+19. WEBSITE AESTHETIC
+
+The website must look like a world-class publication, not a template news portal.
+
+Visual principles:
+
+* generous white space
+* strong typography
+* precise grid
+* disciplined hierarchy
+* high-quality photography
+* thin editorial rules
+* restrained color
+* excellent mobile experience
+* excellent desktop experience
+
+Avoid:
+
+* clutter
+* excessive boxes
+* cheap gradients
+* dark-heavy layouts
+* advertising-style banners
+* unnecessary animations
+* visual noise
+
+The interface should communicate:
+
+Human knowledge deserves dignity.
+
+⸻
+
+20. NEWS PRESENTATION
+
+Every article should clearly expose:
+
+* headline
+* subheadline/summary
+* author
+* reporter identity
+* publication time
+* update time
+* original language
+* sources/evidence
+* editorial status
+* correction history where applicable
+
+The article should never obscure who reported it.
+
+⸻
+
+21. REPORTER PROFILE
+
+Every contributor should eventually have a public profile.
+
+Example:
+
+Name
+Reporter on TheOpenSource.NEWS since [date]
+
+Then:
+
+* reports
+* investigations
+* evidence
+* corrections
+* languages
+* contribution history
+
+Do not create vanity metrics.
+
+Do not make follower counts the primary credibility mechanism.
+
+⸻
+
+22. HUMAN + MACHINE
+
+The platform should use advanced technology extensively.
+
+But never represent technology as the owner.
+
+Never represent technology as the journalist.
+
+Never allow automation to erase accountability.
+
+The principle should be:
+
+Technology assists the human pursuit of truth; it does not own truth.
+
+⸻
+
+23. NO ARTIFICIAL AUTHORITY
+
+Do not create fake credibility indicators.
+
+Never manufacture:
+
+* fake verified badges
+* fake journalist credentials
+* fake source confirmations
+* fake readership numbers
+* fake awards
+* fake trust scores
+
+Everything displayed as authoritative must correspond to a real underlying record.
+
+⸻
+
+24. GLOBAL NEWSROOM MODEL
+
+The platform should be capable of operating as a distributed global newsroom.
+
+A report may originate from:
+
+* Dhaka
+* New York
+* London
+* Lagos
+* Tokyo
+* Delhi
+* São Paulo
+* Cairo
+* Sydney
+* or anywhere else.
+
+Location should not determine whether someone’s voice is structurally less important.
+
+The platform should represent humanity globally.
+
+⸻
+
+25. DISCOVERY
+
+Build information architecture around:
+
+* World
+* Regions
+* Countries
+* Cities
+* Topics
+* Investigations
+* People
+* Sources
+* Languages
+* Contributors
+
+Do not force everything into traditional newspaper categories.
+
+The underlying architecture should support relationships between information.
+
+⸻
+
+26. ARTICLE PROVENANCE
+
+Every article should have machine-readable provenance.
+
+Track:
+
+* author
+* source
+* submission
+* revisions
+* evidence
+* editorial decisions
+* translation
+* verification
+* correction
+
+The long-term objective is to make the platform a trustworthy historical record.
+
+⸻
+
+27. PUBLIC KNOWLEDGE ARCHIVE
+
+TheOpenSource.NEWS should not only report today’s news.
+
+It should progressively become:
+
+A continuously improving public record of human events and knowledge.
+
+A story published today should remain connected to:
+
+* earlier developments
+* later updates
+* corrections
+* related reports
+* primary sources
+* contributors
+* translations
+
+This creates continuity instead of disposable news.
+
+⸻
+
+28. THE PLATFORM’S PUBLIC PHILOSOPHY
+
+The eventual public philosophy should communicate this idea:
+
+One human created the platform as a gift. Humanity is its conceptual owner. The creator steers it, but the knowledge created through it belongs to the broader human story.
+
+Do not make this narcissistic.
+
+Do not make it sound like a personal empire.
+
+The creator’s achievement should be acknowledged while keeping the center of gravity on humanity.
+
+⸻
+
+29. WHAT YOU MUST ACTUALLY BUILD
+
+Do not merely provide a design document.
+
+Create a functioning prototype/system that demonstrates the philosophy.
+
+At minimum build:
+
+1. Global homepage
+2. Article page
+3. Reporter registration
+4. Reporter profile
+5. First-report workflow
+6. Pipeline Draft
+7. Editorial review interface
+8. Multi-agent review architecture
+9. Evidence/source section
+10. Revision history
+11. Correction system
+12. Multilingual framework
+13. Search
+14. Topic/category architecture
+15. About/Humanity ownership page
+16. Editorial principles
+17. Contributor dashboard
+18. Admin/editor dashboard
+19. Logo system
+20. Responsive mobile experience
+21. Favicon/app icon
+22. Social identity
+23. Accessibility system
+24. Machine-readable metadata
+25. Audit/provenance architecture
+
+⸻
+
+30. DO NOT FAKE IMPLEMENTATION
+
+This instruction is critical.
+
+Do not say:
+
+“Implemented”
+
+unless it actually exists.
+
+Do not create:
+
+* placeholder logos presented as final
+* fake news
+* fake verification
+* fake reporter credentials
+* fake AI review results
+* fake statistics
+* fake images
+* fake APIs
+* fake database records
+
+If something is a prototype, label it Prototype.
+
+If something is simulated, label it Simulation.
+
+If something is incomplete, say exactly what remains.
+
+⸻
+
+31. FINAL DESIGN TEST
+
+Before declaring the work complete, evaluate it from the perspective of five people:
+
+A human being
+
+Does this feel like it belongs to humanity?
+
+A journalist
+
+Does this preserve journalistic accountability?
+
+A reader
+
+Can I understand what I am reading and who produced it?
+
+A contributor
+
+Can I genuinely participate?
+
+A historian
+
+Will the record remain understandable years later?
+
+If the answer is not clearly yes, continue refining.
+
+⸻
+
+32. FINAL CREATIVE DIRECTION
+
+The emotional character of the brand should be:
+
+Intelligent.
+Human.
+Open.
+Global.
+Elegant.
+Truth-oriented.
+Calm.
+Curious.
+Independent.
+Timeless.
+
+It must NOT feel:
+
+corporate, partisan, sensationalist, childish, technological-for-technology’s-sake, tabloid, authoritarian or proprietary.
+
+⸻
+
+33. THE FINAL QUESTION
+
+Every major design, engineering and editorial decision must ultimately answer:
+
+“If this publication truly belongs to humanity, would humanity recognize itself in it?”
+
+Build TheOpenSource.NEWS from that principle outward.
+
+Do not build a website that merely talks about this philosophy.
+
+Build a platform whose:
+
+identity, architecture, typography, logo, publishing workflow, reporter system, verification model, multilingual structure, transparency, provenance, corrections, interface and editorial behavior
+
+all demonstrate it.
+
+TheOpenSource.NEWS
+
+A gift from one human to humanity.
+
+Captain: Nadim
+
+Owner: Human
+
+Build it as a real, functioning global publication—not as a concept presentation.

@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "TheOpenSource.NEWS"
+description = "A human-centered global good-news publication where people discover hopeful, evidence-led stories and can follow the path from source to publication."
+version = "1.0.0"
+id = "artifacts/theopensource-news"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24038
+
+[services.development]
+run = "pnpm --filter @workspace/theopensource-news run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/theopensource-news", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/theopensource-news/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24038"
+BASE_PATH = "/"
