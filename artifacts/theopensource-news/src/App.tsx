@@ -169,7 +169,9 @@ function MeridianMark() {
 function Wordmark({ showTagline = true }: { showTagline?: boolean }) {
   return (
     <span className="brand-lockup" aria-label="TheOpenSource.NEWS">
-      <MeridianMark />
+      <span className="brand-emblem">
+        <MeridianMark />
+      </span>
       <span className="brand-copy">
         <span className="brand-name">
           <span className="brand-the">The</span>

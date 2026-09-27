@@ -119,17 +119,19 @@
 @keyframes reveal { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 .site-header { position: sticky; top: 0; z-index: 20; background: hsl(var(--background) / .94); backdrop-filter: blur(12px); border-bottom: 1px solid hsl(var(--foreground) / .13); }
-.header-inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.header-inner { min-height: 90px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .wordmark { display: inline-flex; align-items: center; color: hsl(var(--primary)); white-space: nowrap; }
-.brand-lockup { display: inline-flex; align-items: center; gap: 10px; }
-.brand-copy { display: flex; flex-direction: column; align-items: flex-start; }
+.brand-lockup { display: inline-flex; flex-direction: column; align-items: center; gap: 0; }
+.brand-emblem { display: flex; align-items: flex-end; justify-content: center; height: 29px; }
+.brand-emblem .meridian { width: 48px; height: 48px; transform: translateY(7px); }
+.brand-copy { display: flex; flex-direction: column; align-items: center; }
 .brand-name { display: flex; align-items: baseline; white-space: nowrap; line-height: .82; letter-spacing: -.075em; }
 .brand-the { font: 400 16px/1 var(--app-font-brand); letter-spacing: -.1em; }
-.brand-open { font: 600 26px/.9 var(--app-font-brand); }
-.brand-source { font: 500 20px/.9 var(--app-font-brand); }
-.brand-news { margin-left: 3px; color: hsl(var(--accent)); font: 600 17px/.9 var(--app-font-brand); letter-spacing: -.06em; }
-.brand-tagline { display: flex; align-items: center; gap: 7px; margin-top: 7px; color: hsl(var(--primary) / .72); font: 500 6px/1 var(--app-font-mono); letter-spacing: .13em; text-transform: uppercase; white-space: nowrap; }
-.brand-tagline::before, .brand-tagline::after { content: ''; width: 17px; height: 1px; background: currentColor; opacity: .65; }
+.brand-open { font: 600 29px/.9 var(--app-font-brand); }
+.brand-source { font: 500 23px/.9 var(--app-font-brand); }
+.brand-news { margin-left: 3px; color: hsl(var(--accent)); font: 600 20px/.9 var(--app-font-brand); letter-spacing: -.06em; }
+.brand-tagline { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 8px; color: hsl(var(--primary) / .72); font: 500 6px/1 var(--app-font-mono); letter-spacing: .13em; text-transform: uppercase; white-space: nowrap; }
+.brand-tagline::before, .brand-tagline::after { content: ''; width: 26px; height: 1px; background: currentColor; opacity: .65; }
 .meridian { width: 39px; height: 39px; flex: 0 0 auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 24px; }
 .nav-link { color: hsl(var(--muted-foreground)); font-size: 13px; transition: color .2s ease; }
@@ -343,7 +345,7 @@
 
 @media (max-width: 800px) {
   .container-editorial, .container-narrow { width: min(100% - 30px, 1180px); }
-  .header-inner { min-height: 66px; }
+  .header-inner { min-height: 78px; }
   .nav-links { display: none; }
   .mobile-menu { display: inline-flex; }
   .mobile-nav-panel { display: flex; flex-wrap: wrap; gap: 18px; padding: 0 0 18px; }
@@ -378,14 +380,15 @@
   .newsletter-form { align-items: stretch; flex-direction: column; }
 }
 @media (max-width: 480px) {
-  .brand-lockup { gap: 7px; }
+  .brand-lockup { gap: 0; }
+  .brand-emblem { height: 23px; }
+  .brand-emblem .meridian { width: 38px; height: 38px; transform: translateY(5px); }
   .brand-the { font-size: 11px; }
-  .brand-open { font-size: 20px; }
-  .brand-source { font-size: 15px; }
-  .brand-news { font-size: 12px; }
+  .brand-open { font-size: 22px; }
+  .brand-source { font-size: 17px; }
+  .brand-news { font-size: 14px; }
   .brand-tagline { margin-top: 5px; font-size: 4.5px; letter-spacing: .1em; gap: 5px; }
-  .brand-tagline::before, .brand-tagline::after { width: 10px; }
-  .meridian { width: 27px; height: 27px; }
+  .brand-tagline::before, .brand-tagline::after { width: 15px; }
   .header-tools .button-editorial { display: none; }
   .hero-record h1, .page-hero h1, .article-hero h1 { font-size: 49px; }
   .agent-grid { grid-template-columns: 1fr; }
