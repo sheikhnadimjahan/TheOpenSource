@@ -97,17 +97,35 @@ function PageMeta({ title, description }: { title: string; description: string }
 }
 
 function MeridianMark() {
-  return <span className="meridian" aria-hidden="true" />;
+  return (
+    <svg className="meridian" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <circle cx="50" cy="50" r="34" fill="#19589a" />
+      <g stroke="rgba(255,255,255,.42)" strokeWidth=".8">
+        <ellipse cx="50" cy="50" rx="16" ry="34" />
+        <ellipse cx="50" cy="50" rx="29" ry="34" />
+        <path d="M16 39c18 7 50 7 68 0M16 50c18 5 50 5 68 0M16 61c18-7 50-7 68 0" />
+      </g>
+      <path d="M23 38c5-7 12-11 18-13l4 7-8 5-2 8-8 2-4-9Zm28-12 10 2 6 7-4 7-9-2-5-7 2-7Zm9 25 10 2 4 8-9 6-10-4-1-7 6-5Z" fill="rgba(250,248,239,.92)" />
+      <circle cx="50" cy="50" r="34" stroke="rgba(11,29,54,.4)" strokeWidth="1.4" />
+      <path d="M10 55C27 71 73 76 92 42" stroke="#eef0ed" strokeWidth="8" strokeLinecap="round" transform="rotate(-14 50 50)" />
+      <path d="M10 55C27 71 73 76 92 42" stroke="#19589a" strokeWidth="1.2" strokeLinecap="round" transform="rotate(-14 50 50)" />
+    </svg>
+  );
 }
 
-function Wordmark() {
+function Wordmark({ showTagline = true }: { showTagline?: boolean }) {
   return (
-    <span className="wordmark" aria-label="TheOpenSource.NEWS">
+    <span className="brand-lockup" aria-label="TheOpenSource.NEWS">
       <MeridianMark />
-      <span className="wordmark-the">The</span>
-      <span className="wordmark-open">Open</span>
-      <span className="wordmark-source">Source</span>
-      <span className="wordmark-news">.NEWS</span>
+      <span className="brand-copy">
+        <span className="brand-name">
+          <span className="brand-the">The</span>
+          <span className="brand-open">Open</span>
+          <span className="brand-source">Source</span>
+          <span className="brand-news">.NEWS</span>
+        </span>
+        {showTagline && <span className="brand-tagline">Global news for a better tomorrow</span>}
+      </span>
     </span>
   );
 }

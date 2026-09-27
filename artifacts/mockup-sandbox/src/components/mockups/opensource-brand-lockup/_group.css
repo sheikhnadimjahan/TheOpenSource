@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+:root {
+  --brand-paper: #f7f5ef;
+  --brand-ink: #0b1d36;
+  --brand-blue: #19589a;
+  --brand-blue-deep: #103e73;
+  --brand-burgundy: #781a3a;
+  --brand-line: rgba(11, 29, 54, .16);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: var(--brand-paper); color: var(--brand-ink); }
+button, a { font: inherit; }
+
+.lockup-stage {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 56px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(25, 88, 154, .06), transparent 34%),
+    var(--brand-paper);
+}
+
+.lockup-card {
+  width: min(100%, 780px);
+  padding: 38px 42px 31px;
+  border-top: 1px solid var(--brand-line);
+  border-bottom: 1px solid var(--brand-line);
+  text-align: center;
+}
+
+.brand-lockup { display: inline-flex; align-items: center; gap: 16px; color: var(--brand-ink); }
+.brand-globe { width: 82px; height: 82px; flex: 0 0 auto; color: var(--brand-blue); }
+.brand-copy { display: flex; flex-direction: column; align-items: flex-start; }
+.brand-name { display: flex; align-items: baseline; white-space: nowrap; line-height: .84; letter-spacing: -.075em; }
+.brand-name .the { font: 400 clamp(24px, 5vw, 51px)/1 'Bodoni Moda', serif; letter-spacing: -.09em; }
+.brand-name .open { font: 600 clamp(38px, 7vw, 78px)/.9 'Bodoni Moda', serif; }
+.brand-name .source { font: 500 clamp(28px, 5.3vw, 58px)/.9 'Bodoni Moda', serif; }
+.brand-name .news { margin-left: 4px; color: var(--brand-burgundy); font: 600 clamp(23px, 4.4vw, 48px)/.9 'Bodoni Moda', serif; letter-spacing: -.06em; }
+.brand-tagline { display: flex; align-items: center; gap: 11px; margin-top: 17px; color: var(--brand-ink); font: 500 clamp(7px, 1.25vw, 12px)/1 'DM Mono', monospace; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }
+.brand-tagline::before, .brand-tagline::after { content: ''; width: clamp(20px, 6vw, 68px); height: 1px; background: currentColor; opacity: .6; }
+.brand-caption { margin: 30px 0 0; color: rgba(11, 29, 54, .5); font: 500 10px 'DM Mono', monospace; letter-spacing: .13em; text-transform: uppercase; }
+
+.current-lockup { display: inline-flex; align-items: baseline; color: var(--brand-ink); }
+.current-meridian { width: 31px; height: 31px; margin-right: 11px; display: inline-block; position: relative; border: 1.5px solid var(--brand-ink); border-radius: 50%; transform: rotate(-24deg); }
+.current-meridian::before, .current-meridian::after { content: ''; position: absolute; border: 1px solid var(--brand-ink); border-radius: 50%; }
+.current-meridian::before { inset: 3px 8px; }
+.current-meridian::after { inset: 8px 3px; transform: rotate(62deg); }
+.current-wordmark { display: inline-flex; align-items: baseline; white-space: nowrap; letter-spacing: -.045em; }
+.current-the { font: 500 31px/1 'DM Sans', sans-serif; letter-spacing: -.06em; }
+.current-open { font: 500 50px/1 'Playfair Display', serif; }
+.current-source { font: 600 30px/1 'DM Sans', sans-serif; letter-spacing: -.04em; }
+.current-news { font: 700 31px/1 'DM Mono', monospace; letter-spacing: -.08em; color: var(--brand-burgundy); }
+.current-tagline { margin: 17px 0 0; color: var(--brand-ink); font: 500 11px 'DM Mono', monospace; letter-spacing: .17em; text-transform: uppercase; }
+
+@media (max-width: 600px) {
+  .lockup-stage { padding: 26px 15px; }
+  .lockup-card { padding: 30px 10px 25px; }
+  .brand-lockup { gap: 9px; }
+  .brand-globe { width: 49px; height: 49px; }
+  .brand-name .the { font-size: 18px; }
+  .brand-name .open { font-size: 31px; }
+  .brand-name .source { font-size: 23px; }
+  .brand-name .news { font-size: 19px; }
+  .brand-tagline { margin-top: 10px; font-size: 6px; letter-spacing: .12em; }
+  .current-lockup { transform: scale(.65); transform-origin: center; margin: -22px 0; }
+  .current-tagline { font-size: 7px; letter-spacing: .1em; }
+}
