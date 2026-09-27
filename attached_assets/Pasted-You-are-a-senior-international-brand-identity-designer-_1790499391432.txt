@@ -1,0 +1,264 @@
+You are a senior international brand identity designer and art director specializing in world-class news, editorial, publishing, and digital media brands.
+
+Your task is to create the definitive visual identity and logo system for:
+
+THEOPENSOURCE.NEWS
+
+Brand name:
+TheOpenSource.NEWS
+
+The brand is intended to become a serious international digital news publication. The identity must communicate:
+• global journalism
+• openness and transparency
+• credibility
+• intelligence
+• editorial authority
+• modern digital publishing
+• human interest
+• technology and the open web
+• beauty and sophistication
+• timelessness
+
+IMPORTANT:
+Do NOT produce a generic technology logo.
+Do NOT simply put a globe beside a wordmark.
+Do NOT copy or imitate Reuters, BBC, CNN, The Guardian, The New York Times, National Geographic, AP, Bloomberg, or any other existing news brand.
+
+Study the design principles behind internationally recognized editorial identities, but create a completely original identity.
+
+DESIGN OBJECTIVE
+
+Create a logo that can stand beside major international news organizations without looking amateur, local, generic, or AI-generated.
+
+The logo must be beautiful at first sight, but beauty alone is not enough.
+
+It must have:
+1. instant recognition
+2. strong silhouette
+3. excellent typography
+4. intelligent symbolism
+5. sophisticated colour
+6. excellent negative space
+7. strong performance at very small sizes
+8. strong performance in large mastheads
+9. excellent black-and-white reproduction
+10. excellent digital and mobile usability
+
+TYPOGRAPHY
+
+Typography is extremely important.
+
+Do not use an ordinary default sans-serif.
+
+Explore sophisticated editorial typography, especially:
+• premium contemporary serif
+• elegant high-contrast serif
+• refined newspaper/editorial type
+• custom or modified letterforms
+• carefully paired serif + modern sans-serif
+
+The typography should feel established, intelligent and international.
+
+The words “TheOpenSource” must have a distinctive visual personality.
+
+“.NEWS” should integrate naturally with the main wordmark rather than appearing like an afterthought.
+
+Pay particular attention to:
+• letter spacing
+• kerning
+• x-height
+• stroke contrast
+• proportions
+• optical balance
+• capitalization
+• relationship between “The”, “OpenSource” and “.NEWS”
+
+COLOUR
+
+The previous concept was structurally strong but received only about 80% approval because the colour system was not sophisticated enough.
+
+Develop a much stronger colour strategy.
+
+Do not use too many colours.
+
+Explore a restrained premium editorial palette based around:
+• deep navy / intellectual blue
+• refined cobalt or royal blue
+• black / charcoal
+• white
+• one carefully controlled accent colour
+
+Red may be explored only as a very limited editorial signal, not as the dominant colour.
+
+The colours must work:
+• on white
+• on black
+• in monochrome
+• on a website
+• on mobile
+• as a favicon
+• on social media
+• in print
+
+SYMBOL
+
+Develop an original symbol that can stand independently from the wordmark.
+
+The symbol may intelligently reference concepts such as:
+• openness
+• global communication
+• information
+• source
+• connection
+• discovery
+• journalism
+• the open web
+• the world
+
+But avoid clichés.
+
+Do NOT automatically use:
+• a standard globe
+• microphone
+• newspaper page
+• camera
+• RSS icon
+• generic speech bubble
+• generic network nodes
+• AI robot
+• satellite
+• magnifying glass
+
+If a globe is used, transform it into something distinctive and ownable rather than using a conventional globe illustration.
+
+The symbol should ideally work as:
+• favicon
+• app icon
+• social avatar
+• website browser icon
+• video watermark
+• mobile application icon
+• standalone brand mark
+
+LOGO SYSTEM
+
+Create a complete logo family:
+
+A. Primary horizontal logo
+B. Compact logo
+C. Symbol-only mark
+D. Wordmark-only version
+E. Black version
+F. White/reversed version
+G. Monochrome version
+H. Small-size/favicon version
+
+WEBSITE APPLICATION
+
+TheOpenSource.NEWS will be a digital-first publication.
+
+Show how the identity would behave in a premium international news website.
+
+The masthead must look excellent above:
+• breaking news
+• major headlines
+• photography
+• investigative journalism
+• world news
+• technology
+• science
+• culture
+• human-interest stories
+
+The logo must not overpower journalism.
+
+It should make the website feel more trustworthy, beautiful and internationally established.
+
+VISUAL DIRECTION
+
+Think:
+The Guardian-level editorial confidence
++
+Reuters-level global recognition
++
+BBC-level simplicity
++
+National Geographic-level symbolic memorability
+
+But create something entirely ORIGINAL.
+
+Do not copy their logos, fonts, layouts or visual marks.
+
+The final identity should feel:
+• premium
+• intelligent
+• editorial
+• global
+• human
+• contemporary
+• timeless
+• restrained
+• memorable
+
+It must NOT feel:
+• cheap
+• corporate-template-like
+• gaming-related
+• crypto-related
+• generic SaaS
+• overly futuristic
+• cartoonish
+• excessively colourful
+• over-designed
+
+DELIVERABLE
+
+Do not stop after producing one attractive logo.
+
+First explore several genuinely different design directions internally.
+
+Then select the strongest direction based on:
+• memorability
+• typography
+• symbolism
+• scalability
+• colour
+• editorial credibility
+• international appeal
+• uniqueness
+
+Produce the final recommended identity.
+
+Show the logo clearly and professionally.
+
+Also provide:
+1. Primary logo
+2. Symbol
+3. Wordmark
+4. Colour palette with HEX values
+5. Typography recommendations
+6. Black-and-white version
+7. Small-size/favicon concept
+8. Brief explanation of the symbolism
+9. Brief explanation of the typography
+10. Brief explanation of the colour strategy
+11. Example of the logo as an international news website masthead
+
+IMPORTANT FINAL STANDARD
+
+Do not optimize for “pretty”.
+
+Optimize for a logo that could realistically become a globally recognizable news-media brand over the next 10–20 years.
+
+The final result should look deliberately designed by a world-class editorial branding studio, not generated from a generic logo template.
+
+Brand spelling must be EXACTLY:
+
+TheOpenSource.NEWS
+
+No alternative spelling.
+No extra tagline unless specifically useful.
+No misspelling.
+No placeholder text.
+
+Take full creative responsibility for the design decisions.
