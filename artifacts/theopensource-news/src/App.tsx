@@ -4,6 +4,8 @@ import {
   ArrowRight,
   Activity,
   BookOpen,
+  ChevronRight,
+  Clock3,
   Building2,
   Check,
   CircleHelp,
@@ -13,6 +15,7 @@ import {
   Languages,
   Map,
   Menu,
+  Radio,
   Search,
   Share2,
   ShieldCheck,
@@ -20,7 +23,7 @@ import {
   Users,
   X,
 } from 'lucide-react';
-import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
+import { Link, Route, Switch, useLocation, useParams, Router as WouterRouter } from 'wouter';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -58,6 +61,56 @@ const stories = [
     time: 'Editorial demo · date not live',
     author: 'Prototype desk',
     art: 'rose',
+  },
+  {
+    id: 'health-map',
+    title: 'Community clinics are building their own public health maps',
+    summary: 'Local health workers are combining lived experience with open data to show where care is missing and what is changing.',
+    topic: 'Health',
+    location: 'Kigali, Rwanda',
+    time: 'Editorial demo · date not live',
+    author: 'Global health desk',
+    art: 'green',
+  },
+  {
+    id: 'coastal-commons',
+    title: 'A coastal commons asks who gets to decide what is protected',
+    summary: 'Fishermen, scientists and residents are testing a shared approach to a shoreline under pressure from heat and development.',
+    topic: 'Climate',
+    location: 'Chittagong, Bangladesh',
+    time: 'Prototype edition · date not live',
+    author: 'Climate desk',
+    art: 'blue',
+  },
+  {
+    id: 'repair-economy',
+    title: 'The repair economy is giving old devices a second public life',
+    summary: 'Small workshops are extending the life of electronics while teaching practical skills that rarely appear in official economic figures.',
+    topic: 'Business & technology',
+    location: 'Bengaluru, India',
+    time: 'Editorial demo · date not live',
+    author: 'Future desk',
+    art: 'gold',
+  },
+  {
+    id: 'language-archive',
+    title: 'A language archive is being built one family recording at a time',
+    summary: 'Young researchers are preserving everyday speech, songs and local memory before the last fluent speakers disappear.',
+    topic: 'Culture & ideas',
+    location: 'Oaxaca, Mexico',
+    time: 'Editorial demo · date not live',
+    author: 'Culture desk',
+    art: 'rose',
+  },
+  {
+    id: 'night-transit',
+    title: 'The cities making night travel safer without making it louder',
+    summary: 'A new generation of transit experiments is treating late-night mobility as a public service rather than an afterthought.',
+    topic: 'Cities',
+    location: 'Melbourne, Australia',
+    time: 'Editorial demo · date not live',
+    author: 'Cities desk',
+    art: 'ink',
   },
 ];
 
@@ -134,11 +187,10 @@ function Header() {
   const [location] = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const nav = [
-    { href: '/', label: 'Record' },
+    { href: '/', label: 'Home' },
     { href: '/network', label: 'Network' },
-    { href: '/people', label: 'People' },
-    { href: '/organizations', label: 'Organizations' },
-    { href: '/principles', label: 'Principles' },
+    { href: '/people', label: 'Contributors' },
+    { href: '/principles', label: 'Standards' },
     { href: '/contribute', label: 'Contribute' },
     { href: '/about', label: 'About' },
   ];
@@ -162,6 +214,9 @@ function Header() {
           ))}
         </nav>
         <div className="header-tools">
+          <a href="/#latest" className="header-search" data-testid="link-header-search">
+            <Search size={14} /> <span>Search</span>
+          </a>
           <label className="sr-only" htmlFor="language-select">Language</label>
           <select id="language-select" className="language-select" defaultValue="EN" data-testid="select-language" aria-label="Language">
             <option>EN</option>
@@ -170,7 +225,7 @@ function Header() {
             <option>AR</option>
           </select>
           <Link href="/contribute" className="button-editorial button-ink" data-testid="link-header-contribute">
-            First report <ArrowRight size={14} />
+            Contribute <ArrowRight size={14} />
           </Link>
           <button
             type="button"
@@ -193,6 +248,18 @@ function Header() {
           ))}
         </div>
       )}
+      <nav className="publication-nav" aria-label="News sections">
+        <div className="container-editorial publication-nav-inner">
+          <span className="publication-nav-name">News</span>
+          <a href="/#world" data-testid="link-publication-world">World</a>
+          <a href="/#latest" data-testid="link-publication-latest">Latest</a>
+          <a href="/#climate" data-testid="link-publication-climate">Climate</a>
+          <a href="/#business" data-testid="link-publication-business">Business &amp; technology</a>
+          <a href="/#culture" data-testid="link-publication-culture">Culture &amp; ideas</a>
+          <Link href="/network" data-testid="link-publication-network">Global network</Link>
+          <Link href="/principles" data-testid="link-publication-standards">Standards</Link>
+        </div>
+      </nav>
     </header>
   );
 }
@@ -439,96 +506,174 @@ function Home() {
   const filtered = useMemo(() => stories.filter((story) => {
     const matchesTopic = topic === 'All' || story.topic === topic;
     const haystack = `${story.title} ${story.summary} ${story.location}`.toLowerCase();
-    return story.id !== 'river-restoration' && matchesTopic && haystack.includes(query.toLowerCase());
+    return matchesTopic && haystack.includes(query.toLowerCase());
   }), [query, topic]);
+  const leadStory = stories[0];
   return (
     <>
-      <PageMeta title="A public record for humanity" description="Discover evidence-led progress and see how reporting becomes trusted knowledge on TheOpenSource.NEWS." />
-      <div className="container-editorial">
-        <section className="hero-record">
-          <div className="reveal">
-            <div className="eyebrow">The global public record · prototype edition</div>
-            <h1>A clearer view of a world still <em>in motion.</em></h1>
-            <p className="hero-deck">TheOpenSource.NEWS is a calm, open publication for evidence-led progress — stories that remain connected to the people, sources and changes behind them.</p>
+      <PageMeta title="Global news, openly reported" description="TheOpenSource.NEWS is a prototype global newsroom for evidence-led reporting, local knowledge and a visible editorial record." />
+      <div className="home-frontpage">
+        <div className="container-editorial">
+          <div className="edition-bar" data-testid="status-edition">
+            <span className="edition-date">GLOBAL EDITION <b>/</b> SUNDAY 27 SEPTEMBER 2026</span>
+            <span className="edition-status"><Radio size={12} /> Publication date not live</span>
+            <Link href="/principles" data-testid="link-edition-principles">Our standards <ChevronRight size={13} /></Link>
           </div>
-          <aside className="hero-aside reveal reveal-delay-2">
-            <div className="eyebrow">Our starting point</div>
-            <p>“Evidence before assertion. Accountability without theatre.”</p>
-            <small>Editorial demo content is used throughout this first release to show the shape of the record. It is not presented as live reporting.</small>
-          </aside>
-        </section>
-        <div className="record-strip">
-          <div className="ticker"><span className="live-dot" /> The record is open</div>
-          <div className="record-strip-copy"><strong>Prototype network</strong> · provenance visible by design</div>
-        </div>
-        <EcosystemNav />
-        <NetworkScale />
-        <div className="search-row">
-          <div className="search-box">
-            <Search size={17} aria-hidden="true" />
-            <label className="sr-only" htmlFor="record-search">Search the record</label>
-            <input id="record-search" type="search" placeholder="Search places, themes, people…" value={query} onChange={(event) => setQuery(event.target.value)} data-testid="input-search-record" />
-            {query && <button type="button" className="icon-button" onClick={() => setQuery('')} aria-label="Clear search" data-testid="button-clear-search"><X size={14} /></button>}
+          <section className="front-intro reveal">
+            <div>
+              <div className="eyebrow">TheOpenSource.NEWS · independent global desk</div>
+              <h1>Global news, <em>reported</em> with context.</h1>
+            </div>
+            <div className="front-intro-side">
+              <p>Evidence-led reporting from the places where change is happening — with people, sources and uncertainty kept in view.</p>
+              <span className="prototype-badge">Editorial prototype · not live news</span>
+            </div>
+          </section>
+          <nav className="front-section-nav" aria-label="News sections" data-testid="nav-news-sections">
+            <span className="section-nav-label">Sections</span>
+            <a href="#world" data-testid="link-section-world">World</a>
+            <a href="#latest" data-testid="link-section-latest">Latest</a>
+            <a href="#living-systems" data-testid="link-section-living-systems">Living systems</a>
+            <a href="#infrastructure" data-testid="link-section-infrastructure">Shared infrastructure</a>
+            <a href="#food-land" data-testid="link-section-food-land">Food &amp; land</a>
+            <Link href="/network" data-testid="link-section-network">Global network <ChevronRight size={13} /></Link>
+          </nav>
+          <div className="front-news-alert" data-testid="status-news-alert">
+            <span className="alert-label"><span className="live-dot" /> NEWSROOM NOTE</span>
+            <span>Prototype coverage is clearly marked. The publication workflow is being built in public.</span>
+            <Link href="/about" data-testid="link-news-alert-about">Why this exists <ArrowRight size={13} /></Link>
           </div>
-          <div className="topic-links" aria-label="Filter stories">
-            {topics.map((item) => <button type="button" key={item} className={`topic-pill ${topic === item ? 'active' : ''}`} onClick={() => setTopic(item)} data-testid={`button-topic-${item.toLowerCase().replaceAll(' ', '-')}`}>{item}</button>)}
-          </div>
-        </div>
-        <section aria-labelledby="featured-title">
-          <div className="section-heading"><h2 id="featured-title">A story to begin with</h2><span>Prototype field note</span></div>
-          <article className="lead-story">
-            <StoryArt lead />
-            <div className="lead-copy">
-              <div>
-                <span className="story-kicker">Living systems · Wales, United Kingdom</span>
-                <Link href="/story/river-restoration" data-testid="link-featured-story">
-                  <h3>A river returns to the people who live beside it</h3>
+          <section className="front-lead-layout" id="world" aria-labelledby="top-story-title">
+            <article className="front-lead-story" data-testid="card-lead-story">
+              <StoryArt lead />
+              <div className="front-lead-copy">
+                <div>
+                  <div className="story-kicker">Wales, United Kingdom <span>·</span> Living systems</div>
+                  <Link href="/story/river-restoration" data-testid="link-lead-story">
+                    <h2 id="top-story-title">{leadStory.title}</h2>
+                  </Link>
+                  <p>{leadStory.summary}</p>
+                </div>
+                <div className="front-lead-footer">
+                  <div className="story-meta"><span className="status">EDITORIAL DEMO</span><span>Prototype edition</span><span>·</span><span>The Open Meridian desk</span></div>
+                  <Link href="/story/river-restoration" className="read-link" data-testid="link-lead-read">Read full coverage <ArrowRight size={14} /></Link>
+                </div>
+              </div>
+            </article>
+            <aside className="latest-rail" id="latest" aria-labelledby="latest-title">
+              <div className="rail-heading"><h2 id="latest-title">Latest headlines</h2><span>03 reports</span></div>
+              {stories.slice(0, 5).map((story, index) => (
+                <Link href={`/story/${story.id}`} className="headline-item" key={story.id} data-testid={`link-latest-${story.id}`}>
+                  <span className="headline-number">0{index + 1}</span>
+                  <span className="headline-copy"><span className="story-kicker">{story.location}</span><strong>{story.title}</strong><span className="headline-time"><Clock3 size={11} /> {story.time}</span></span>
+                  <ChevronRight size={15} className="headline-arrow" />
                 </Link>
-                <p className="story-summary">After a decade of patient work, communities along the Wye are seeing fish, wetlands and public access return to a once-polluted stretch.</p>
-              </div>
-              <div>
-                <div className="story-meta"><span className="status">Editorial demo</span><span>Prototype edition</span><span>·</span><span>The Open Meridian desk</span></div>
-                <div style={{ marginTop: 17 }}><SaveShare /></div>
+              ))}
+              <div className="rail-footer"><span className="live-dot" /> All times shown are prototype labels</div>
+            </aside>
+          </section>
+          <section className="desk-index" aria-labelledby="desk-index-title">
+            <div className="desk-index-top">
+              <div><div className="eyebrow">The global desk</div><h2 id="desk-index-title">Coverage by place and consequence.</h2></div>
+              <p>Our starting file follows practical change across borders, without flattening local context into a single feed.</p>
+            </div>
+            <div className="desk-columns">
+              <Link href="/story/solar-library" id="infrastructure" className="desk-column desk-column-blue" data-testid="link-desk-infrastructure">
+                <span className="desk-column-top"><span>01</span><span>East Africa</span></span>
+                <span className="desk-column-title">{stories[1].title}</span>
+                <span className="desk-column-meta">Nairobi, Kenya <ArrowRight size={14} /></span>
+              </Link>
+              <Link href="/story/seed-archive" id="food-land" className="desk-column desk-column-rose" data-testid="link-desk-food-land">
+                <span className="desk-column-top"><span>02</span><span>Latin America</span></span>
+                <span className="desk-column-title">{stories[2].title}</span>
+                <span className="desk-column-meta">Oaxaca, Mexico <ArrowRight size={14} /></span>
+              </Link>
+              <Link href="/network" id="living-systems" className="desk-column desk-column-ink" data-testid="link-desk-network">
+                <span className="desk-column-top"><span>03</span><span>Six nodes mapped</span></span>
+                <span className="desk-column-title">A global network for local reporting.</span>
+                <span className="desk-column-meta">Explore the network <ArrowRight size={14} /></span>
+              </Link>
+            </div>
+          </section>
+          <section className="news-beat-grid" aria-labelledby="beats-title">
+            <div className="beat-grid-heading">
+              <div><div className="eyebrow">Across the desks</div><h2 id="beats-title">News in focus</h2></div>
+              <span>Stories with the context attached</span>
+            </div>
+            <div className="beat-grid">
+              <article className="beat-column" id="health" data-testid="card-beat-health">
+                <div className="beat-label">Health</div>
+                <Link href="/story/health-map" data-testid="link-beat-health"><h3>{stories[3].title}</h3></Link>
+                <p>{stories[3].summary}</p>
+                <div className="beat-meta"><span>{stories[3].location}</span><ArrowRight size={14} /></div>
+              </article>
+              <article className="beat-column" id="climate" data-testid="card-beat-climate">
+                <div className="beat-label">Climate</div>
+                <Link href="/story/coastal-commons" data-testid="link-beat-climate"><h3>{stories[4].title}</h3></Link>
+                <p>{stories[4].summary}</p>
+                <div className="beat-meta"><span>{stories[4].location}</span><ArrowRight size={14} /></div>
+              </article>
+              <article className="beat-column beat-column-ink" id="business" data-testid="card-beat-business">
+                <div className="beat-label">Business &amp; technology</div>
+                <Link href="/story/repair-economy" data-testid="link-beat-business"><h3>{stories[5].title}</h3></Link>
+                <p>{stories[5].summary}</p>
+                <div className="beat-meta"><span>{stories[5].location}</span><ArrowRight size={14} /></div>
+              </article>
+              <article className="beat-column" id="culture" data-testid="card-beat-culture">
+                <div className="beat-label">Culture &amp; ideas</div>
+                <Link href="/story/language-archive" data-testid="link-beat-culture"><h3>{stories[6].title}</h3></Link>
+                <p>{stories[6].summary}</p>
+                <div className="beat-meta"><span>{stories[6].location}</span><ArrowRight size={14} /></div>
+              </article>
+            </div>
+          </section>
+          <section className="front-latest-section" id="latest" aria-labelledby="full-index-title">
+            <div className="front-index-header">
+              <div><div className="eyebrow">The full index</div><h2 id="full-index-title">More from the record</h2></div>
+              <div className="front-index-tools">
+                <label className="front-search"><Search size={15} /><span className="sr-only">Search the record</span><input id="record-search" type="search" placeholder="Search coverage" value={query} onChange={(event) => setQuery(event.target.value)} data-testid="input-search-record" />{query && <button type="button" className="icon-button" onClick={() => setQuery('')} aria-label="Clear search" data-testid="button-clear-search"><X size={13} /></button>}</label>
+                <div className="topic-links" aria-label="Filter coverage">
+                  {topics.map((item) => <button type="button" key={item} className={`topic-pill ${topic === item ? 'active' : ''}`} onClick={() => setTopic(item)} data-testid={`button-topic-${item.toLowerCase().replaceAll(' ', '-')}`}>{item}</button>)}
+                </div>
               </div>
             </div>
-          </article>
-        </section>
-        <section className="story-grid" aria-labelledby="more-stories-title">
-          <div>
-            <div className="section-heading"><h2 id="more-stories-title">More threads</h2><span>{filtered.length} of {stories.length}</span></div>
-            <div className="story-list">
-              {filtered.length > 0 ? filtered.map((story) => <StoryRow key={story.id} story={story} />) : <div className="empty-state"><p>No threads match that search yet.</p><button type="button" className="button-editorial" onClick={() => { setQuery(''); setTopic('All'); }} data-testid="button-reset-search">Show the full record</button></div>}
+            <div className="front-index-body">
+              <div className="story-list">
+                {filtered.length > 0 ? filtered.map((story) => <StoryRow key={story.id} story={story} />) : <div className="empty-state"><p>No reports match that search yet.</p><button type="button" className="button-editorial" onClick={() => { setQuery(''); setTopic('All'); }} data-testid="button-reset-search">Show the full record</button></div>}
+              </div>
+              <aside className="index-aside front-principles">
+                <div className="eyebrow">Open by design</div>
+                <h2>See how a story earns its place.</h2>
+                <p>Every report has a visible trail: who made it, what it rests on, what changed and where uncertainty remains.</p>
+                <Link href="/principles" className="button-editorial" data-testid="link-home-principles">Read the principles <ArrowRight size={14} /></Link>
+              </aside>
             </div>
-          </div>
-          <aside className="index-aside">
-            <div className="eyebrow">Open by design</div>
-            <h2>See how a story earns its place.</h2>
-            <p>Every report has a visible trail: who made it, what it rests on, what changed and where uncertainty remains.</p>
-            <Link href="/principles" className="button-editorial" data-testid="link-home-principles">Read the principles <ArrowRight size={14} /></Link>
-          </aside>
-        </section>
-        <section className="newsletter" aria-labelledby="newsletter-title">
-          <div><div className="eyebrow">A quiet dispatch</div><h2 id="newsletter-title">A little more context, occasionally.</h2></div>
-          {subscribed ? <div className="success-box" data-testid="status-newsletter-success"><strong>You’re on the prototype list.</strong><br />In a live edition, this would be where the next carefully sourced thread begins.</div> : <form className="newsletter-form" onSubmit={(event) => { event.preventDefault(); setSubscribed(true); }}><label htmlFor="newsletter-email">Your email<input id="newsletter-email" type="email" required placeholder="name@example.com" data-testid="input-newsletter-email" /></label><button type="submit" className="button-editorial button-ink" data-testid="button-newsletter-submit">Join the dispatch <ArrowRight size={14} /></button></form>}
-        </section>
+          </section>
+          <section className="front-newsletter" aria-labelledby="newsletter-title">
+            <div><div className="eyebrow">The weekly file</div><h2 id="newsletter-title">Reporting with the context attached.</h2><p>A concise dispatch when a new thread is ready. No manufactured urgency.</p></div>
+            {subscribed ? <div className="success-box" data-testid="status-newsletter-success"><strong>You’re on the prototype list.</strong><br />In a live edition, this would be where the next carefully sourced thread begins.</div> : <form className="newsletter-form" onSubmit={(event) => { event.preventDefault(); setSubscribed(true); }}><label htmlFor="newsletter-email">Email address<input id="newsletter-email" type="email" required placeholder="name@example.com" data-testid="input-newsletter-email" /></label><button type="submit" className="button-editorial button-ink" data-testid="button-newsletter-submit">Join the dispatch <ArrowRight size={14} /></button></form>}
+          </section>
+        </div>
       </div>
     </>
   );
 }
 
 function ArticlePage() {
+  const { slug } = useParams<{ slug: string }>();
+  const story = stories.find((item) => item.id === slug) ?? stories[0];
   return (
     <>
-      <PageMeta title="A river returns to the people who live beside it" description="An editorial prototype showing evidence, provenance and corrections on TheOpenSource.NEWS." />
+      <PageMeta title={story.title} description={`${story.summary} Read the editorial prototype record on TheOpenSource.NEWS.`} />
       <div className="container-editorial">
         <article>
           <header className="article-hero">
-            <div className="eyebrow">Living systems · Wales, United Kingdom · Editorial demo</div>
-            <h1>A river returns to the people who live beside it</h1>
-            <p className="article-deck">After a decade of patient work, communities along the Wye are seeing fish, wetlands and public access return to a once-polluted stretch.</p>
+            <div className="eyebrow">{story.topic} · {story.location} · Editorial demo</div>
+            <h1>{story.title}</h1>
+            <p className="article-deck">{story.summary}</p>
             <div className="byline-row">
               <span className="avatar-initials">OM</span>
-              <span><strong>The Open Meridian desk</strong><br />Editorial team · Reporter record shown as prototype</span>
+              <span><strong>{story.author}</strong><br />Editorial team · Reporter record shown as prototype</span>
               <span>Prototype publication record<br />Update history not live</span>
               <span>Original language: English</span>
               <div className="article-tools"><SaveShare compact /></div>
@@ -536,12 +681,12 @@ function ArticlePage() {
           </header>
           <div className="article-layout">
             <div className="article-body">
-              <p>For years, the river was treated as a boundary: a line on a map, a problem passed between authorities, a place people remembered more vividly than they could visit. Along this stretch of the Wye, that relationship is beginning to change.</p>
-              <p>This prototype story follows a simple question: what does repair look like when it is measured in seasons rather than announcements? The answer is visible in restored banks, returning habitat and the ordinary act of reaching the water again.</p>
+               <p>This prototype report follows a story that begins in {story.location}, but asks questions that travel further: who is affected, what evidence is available and what changes when local knowledge is treated as part of the public record?</p>
+               <p>The work is intentionally assembled as a news record rather than a victory lap. Readers should be able to see what was observed, what was reported, what has supporting evidence and what remains a question.</p>
               <div className="evidence-note"><strong><ShieldCheck size={14} style={{ verticalAlign: 'middle', marginRight: 6 }} /> Evidence note · prototype</strong>This is a demonstration of the evidence interface. The claims, names and references below are editorial demo content and have not been independently verified for publication.</div>
-              <h2>Repair is a long sentence</h2>
-              <p>The work described here is intentionally assembled as a record rather than a victory lap. A report begins with a contributor’s account, then keeps its sources, editorial decisions and later revisions attached to the same thread.</p>
-              <p>That shape matters. A reader should be able to distinguish what was observed, what was reported, what has supporting evidence and what remains a question. Confidence is not the same thing as certainty.</p>
+               <h2>Context is part of the story</h2>
+               <p>A report begins with a contributor’s account, then keeps its sources, editorial decisions and later revisions attached to the same thread. The record should travel with the headline, not disappear behind it.</p>
+               <p>That shape matters across borders and languages. Confidence is not the same thing as certainty, and a clear uncertainty is more useful than an unsupported claim.</p>
               <h2>What we would keep checking</h2>
               <p>In a published version, the record would link directly to primary documents, field notes, data and named human editorial decisions. Translations would preserve the original language, and later changes would sit beside — never silently replace — the first version.</p>
               <div className="correction"><strong>Correction history</strong><p>No corrections in this prototype record. This line is intentionally visible to show where a future change log belongs.</p></div>
@@ -645,7 +790,7 @@ function Router() {
           <Route path="/network" component={NetworkPage} />
           <Route path="/people" component={PeoplePage} />
           <Route path="/organizations" component={OrganizationsPage} />
-          <Route path="/story/river-restoration" component={ArticlePage} />
+          <Route path="/story/:slug" component={ArticlePage} />
           <Route path="/contribute" component={ContributePage} />
           <Route path="/principles" component={PrinciplesPage} />
           <Route path="/about" component={AboutPage} />
